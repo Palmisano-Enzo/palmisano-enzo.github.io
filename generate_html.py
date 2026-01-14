@@ -12,7 +12,7 @@ html_content = f"""<!DOCTYPE html>
 </head>
 <body>
     <h1>Bonjour 👋</h1>
-    <p>Page générée par Python.</p>
+    <p>Page générée par Python via une action github.</p>
     <p>Date de génération : {datetime.now()}</p>
 </body>
 </html>
