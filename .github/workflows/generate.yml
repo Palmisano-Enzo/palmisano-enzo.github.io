@@ -27,6 +27,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add output/index.html
           git commit -m "Auto-generate HTML page" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
