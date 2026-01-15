@@ -1,0 +1,24 @@
+{
+    "fr": {
+      "name": "Prénom Nom",
+      "title": "Développeur & Ingénieur",
+      "subtitle": "Je conçois des projets web sobres et efficaces.",
+      "cta": "Voir mes projets",
+      "nav": {
+        "projects": "Projets",
+        "cv": "CV",
+        "contact": "Contact"
+      }
+    },
+    "en": {
+      "name": "First Last",
+      "title": "Developer & Engineer",
+      "subtitle": "I design clean and efficient web projects.",
+      "cta": "View my projects",
+      "nav": {
+        "projects": "Projects",
+        "cv": "Resume",
+        "contact": "Contact"
+      }
+    }
+  }
