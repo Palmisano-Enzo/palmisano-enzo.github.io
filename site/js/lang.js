@@ -5,7 +5,7 @@ fetch("data/lang.json")
   .then(res => res.json())
   .then(data => {
     langData = data;
-    updateContent();
+    setLang(currentLang);
   });
 
   function setLang(lang) {
