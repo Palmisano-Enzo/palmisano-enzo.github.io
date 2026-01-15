@@ -8,11 +8,18 @@ fetch("data/lang.json")
     updateContent();
   });
 
-function setLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  updateContent();
-}
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+  
+    document.querySelectorAll(".lang-switch button").forEach(btn => {
+      btn.classList.remove("active");
+    });
+  
+    document.querySelector(`[onclick="setLang('${lang}')"]`).classList.add("active");
+  
+    updateContent();
+  }
 
 function updateContent() {
   document.querySelectorAll("[data-key]").forEach(el => {
