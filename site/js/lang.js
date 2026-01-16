@@ -5,7 +5,6 @@ const langReady = fetch("data/lang.json")
   .then(res => res.json())
   .then(data => {
     langData = data;
-    
   });
 
 function initLangSwitch() {
@@ -16,33 +15,41 @@ function initLangSwitch() {
       });
 
       langReady.then(() => {
-        setLang(currentLang);
+        applyLang();
       });
 }
 
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem("lang", lang);
-    document.documentElement.lang = lang;
+function applyLang() {
+    document.documentElement.lang = currentLang;
+    localStorage.setItem("lang", currentLang);
   
+    // bouton actif
     document.querySelectorAll(".lang-switch button").forEach(btn => {
-      btn.classList.remove("active");
+      btn.classList.toggle("active", btn.dataset.lang === currentLang);
     });
   
-    const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
-    if (activeBtn) activeBtn.classList.add("active");
-  
+    // texte
     updateContent();
-
+  
+    // blog
     if (typeof renderBlog === "function") {
-        renderBlog();
-      }
-  }
+      renderBlog();
+    }
+}
+
+function setLang(lang) {
+    currentLang = lang;
+    applyLang();
+}
 
 function updateContent() {
-  document.querySelectorAll("[data-key]").forEach(el => {
-    const key = el.getAttribute("data-key");
-    const value = key.split(".").reduce((obj, i) => obj[i], langData[currentLang]);
-    el.textContent = value;
-  });
+    if (!langData[currentLang]) return;
+    document.querySelectorAll("[data-key]").forEach(el => {
+      const key = el.dataset.key;
+      const value = key
+        .split(".")
+        .reduce((o, i) => o?.[i], langData[currentLang]);
+  
+      if (value) el.textContent = value;
+    });
 }
