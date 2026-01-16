@@ -5,7 +5,7 @@ fetch("data/lang.json")
   .then(res => res.json())
   .then(data => {
     langData = data;
-    setLang(currentLang);
+    //setLang(currentLang); trying after to add border to active lang button
   });
 
 function initLangSwitch() {
@@ -15,7 +15,7 @@ function initLangSwitch() {
         });
       });
 
-    //setLang(currentLang); if problems with initial load
+    setLang(currentLang); 
 }
 
   function setLang(lang) {
