@@ -1,5 +1,5 @@
 let langData = {};
-let currentLang = "fr";
+let currentLang = localStorage.getItem("lang") || "fr";
 
 fetch("data/lang.json")
   .then(res => res.json())
