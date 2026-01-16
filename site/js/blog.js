@@ -6,7 +6,7 @@ fetch(SHEET_URL)
   .then(csv => {
     const rows = csv.split("\n").slice(1);
     const projects = rows.map(row => {
-      const [title, description, date, link, tags] =
+      const [title, subtitle, description, date, link, tags, image] =
         row.split("\t").map(cell => cell.replace(/"/g, "").trim());
 
       return { title, subtitle, description, date, link, tags, image };
@@ -22,7 +22,8 @@ function renderProjects(projects) {
     const article = document.createElement("article");
 
     article.innerHTML = `
-      <h3>${p.title}</h3>
+      <h2>${p.title}</h2>
+      <h3>${p.subtitle}</h3>
       <p>${p.description}</p>
       <small>${p.date}</small>
       ${p.link ? `<a href="${p.link}" target="_blank">Voir →</a>` : ""}
