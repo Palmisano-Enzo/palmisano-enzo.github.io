@@ -3,17 +3,18 @@ const SHEET_URL =
 
 fetch(SHEET_URL)
   .then(res => res.text())
-  .then(csv => {
-    const rows = csv.split("\n").slice(1);
+  .then(tsv => {
+    const rows = tsv.split("\n").slice(1);
     const projects = rows.map(row => {
       const [title, subtitle, description, date, link, tags, image] =
-        row.split("\t").map(cell => cell.replace(/"/g, "").trim());
+        row.split("\t").map(cell => cell.trim());
 
       return { title, subtitle, description, date, link, tags, image };
     });
 
     renderProjects(projects);
-  });
+  })
+  .catch(err => console.error("Erreur Google Sheet:", err));
 
 function renderProjects(projects) {
   const container = document.getElementById("projets");
