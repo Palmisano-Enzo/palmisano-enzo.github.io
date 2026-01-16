@@ -1,7 +1,7 @@
 const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8mMR3ytIGeUkrsZWK5c_ippRYVLLjQcG_5BPeqcwYjl1FgH0AdQYUszWGlu-f_0aN0VIiY_djDvhv/pub?gid=0&single=true&output=tsv";
 
-  let allProjects = [];
+let allProjects = [];
 
   fetch(SHEET_URL)
   .then(res => res.text())

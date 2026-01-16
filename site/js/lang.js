@@ -8,9 +8,11 @@ fetch("data/lang.json")
     setLang(currentLang);
   });
 
-document.querySelectorAll(".lang-switch button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      setLang(btn.dataset.lang);
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".lang-switch button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        setLang(btn.dataset.lang);
+      });
     });
   });
 
@@ -23,9 +25,8 @@ document.querySelectorAll(".lang-switch button").forEach(btn => {
       btn.classList.remove("active");
     });
   
-    document
-    .querySelector(`[data-lang="${lang}"]`)
-    .classList.add("active");
+    const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
+    if (activeBtn) activeBtn.classList.add("active");
   
     updateContent();
 
