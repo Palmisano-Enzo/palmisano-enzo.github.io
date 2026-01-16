@@ -1,11 +1,11 @@
 let langData = {};
 let currentLang = localStorage.getItem("lang") || "fr";
 
-fetch("data/lang.json")
+const langReady = fetch("data/lang.json")
   .then(res => res.json())
   .then(data => {
     langData = data;
-    //setLang(currentLang); trying after to add border to active lang button
+    
   });
 
 function initLangSwitch() {
@@ -15,7 +15,9 @@ function initLangSwitch() {
         });
       });
 
-    setLang(currentLang); 
+      langReady.then(() => {
+        setLang(currentLang);
+      });
 }
 
   function setLang(lang) {
