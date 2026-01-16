@@ -9,13 +9,13 @@ fetch("data/lang.json")
   });
 
 function initLangSwitch() {
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".lang-switch button").forEach(btn => {
-            btn.addEventListener("click", () => {
-                setLang(btn.dataset.lang);
-            });
+    document.querySelectorAll(".lang-switch button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          setLang(btn.dataset.lang);
         });
-    });
+      });
+
+    //setLang(currentLang); if problems with initial load
 }
 
   function setLang(lang) {
