@@ -1,18 +1,32 @@
-<header>
-    <div class="lang-switch">
-        <button data-lang="fr">FR</button>
-        <button data-lang="en">EN</button>
-    </div>
-</header>
+<!DOCTYPE html>
+<html lang="fr">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Enzo Palmisano</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
 
-<main>
+    <body>
+        <div id="header"></div>
 
-    <section class="blog">
-      <h1>Projets</h1>
-      <div id="projets"></div>
-    </section>
-</main>
-  
-<script src="js/lang.js"></script>
-<script src="js/blog.js"></script>
+        <main>
+
+            <section class="blog">
+            <h1>Projets</h1>
+            <div id="projets"></div>
+            </section>
+        </main>
+        
+        <script src="js/layout.js"></script>
+        <script src="js/lang.js"></script>
+        <script src="js/blog.js"></script>
+
+        <script>
+            loadPartial("#header", "partials/header.html", initLangSwitch);
+        </script>
+
+    </body>
+
+</html>
   

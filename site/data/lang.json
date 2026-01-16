@@ -5,7 +5,7 @@
       "cta": "Voir mes projets",
       "nav": {
         "projects": "Projets",
-        "cv": "CV",
+        "cv": "À propos de moi",
         "contact": "Contact"
       }
     },
@@ -15,7 +15,7 @@
       "cta": "View my projects",
       "nav": {
         "projects": "Projects",
-        "cv": "Resume",
+        "cv": "About me",
         "contact": "Contact"
       }
     }

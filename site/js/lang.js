@@ -8,13 +8,15 @@ fetch("data/lang.json")
     setLang(currentLang);
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".lang-switch button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        setLang(btn.dataset.lang);
-      });
+function initLangSwitch() {
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".lang-switch button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                setLang(btn.dataset.lang);
+            });
+        });
     });
-  });
+}
 
   function setLang(lang) {
     currentLang = lang;
