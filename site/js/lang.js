@@ -8,17 +8,30 @@ fetch("data/lang.json")
     setLang(currentLang);
   });
 
+document.querySelectorAll(".lang-switch button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setLang(btn.dataset.lang);
+    });
+  });
+
   function setLang(lang) {
     currentLang = lang;
+    localStorage.setItem("lang", lang);
     document.documentElement.lang = lang;
   
     document.querySelectorAll(".lang-switch button").forEach(btn => {
       btn.classList.remove("active");
     });
   
-    document.querySelector(`[onclick="setLang('${lang}')"]`).classList.add("active");
+    document
+    .querySelector(`[data-lang="${lang}"]`)
+    .classList.add("active");
   
     updateContent();
+
+    if (typeof renderBlog === "function") {
+        renderBlog();
+      }
   }
 
 function updateContent() {
