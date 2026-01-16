@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-    
+
     <head>
         <meta charset="UTF-8">
         <title>Enzo Palmisano</title>
@@ -23,7 +23,9 @@
         <script src="js/blog.js"></script>
 
         <script>
-            loadPartial("#header", "partials/header.html", initLangSwitch);
+            loadPartial("#header", "partials/header.html", () => {
+                        initLangSwitch();
+                        highlightActivePage();});
         </script>
 
     </body>
