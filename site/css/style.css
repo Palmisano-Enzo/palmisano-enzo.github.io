@@ -76,6 +76,12 @@
     animation: fadeUp 0.8s ease-out forwards;
   }
 
+  .blog {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+  }
+
   .logo img {
     height: 26px;
     width: auto;
@@ -83,18 +89,12 @@
   }
   
   .logo a {
-    display: flex;
+    /*display: flex;*/
     align-items: center;
   }
 
   .logo img:hover {
     opacity: 0.7;
-  }
-
-  .blog {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 0 2rem;
   }
 
   /* header */
