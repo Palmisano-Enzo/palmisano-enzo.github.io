@@ -83,10 +83,16 @@
   }
 
   .header-logo img {
-    height: 80px;
+    height: 180px;
     width: auto;
     transition: opacity 0.2s ease;
+    transition: height 0.75s ease;
   }
+
+  /* Scrolled state */
+    .header-logo img.is-scrolled {
+        height: 80px;
+    }
   
   .header-logo a {
     /*display: flex;*/
@@ -174,10 +180,11 @@
     width: 0;
     height: 1px;
     background: #111;
-    transition: width 1.25s ease;
+    transition: width 0.75s ease;
 }
 
-.main-nav a.active::after {
+.main-nav a.active::after,
+.main-nav a.hover::after{
     width: 100%;
 }
 
@@ -186,7 +193,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 4.5rem;
+        padding: 2rem 2.5rem;
     }
     .main-nav {
         margin: 0;
@@ -195,10 +202,12 @@
     .lang-switch button {
         font-size: 1rem;
     }
-    .main-nav a {
-        margin-right: 2rem;
-    }
     .header-logo img {
+        height: 140px;
+    }
+
+    /* Scrolled state */ 
+    .header-logo img.is-scrolled {
         height: 30px;
     }
 }
