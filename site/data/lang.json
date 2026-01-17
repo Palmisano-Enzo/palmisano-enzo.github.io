@@ -6,8 +6,14 @@
       "nav": {
         "home": "",
         "projects": "Projets",
-        "cv": "À propos de moi",
+        "info": "À propos de moi",
         "contact": "Contact"
+      },
+      "blog": {
+        "title": "Mes projets"
+      },
+      "info": {
+        "title": "À propos de moi - Cette page est en construction !"
       },
       "contactForm": {
         "contactTitle": "Contactez-moi !",
@@ -24,8 +30,14 @@
       "nav": {
         "home": "",
         "projects": "Projects",
-        "cv": "About me",
+        "info": "About me",
         "contact": "Contact"
+      },
+      "blog": {
+        "title": "My projects"
+      },
+      "info": {
+        "title": "About me - This page is under construction!"
       },
       "contactForm": {
         "contactTitle": "Contact Me !",
