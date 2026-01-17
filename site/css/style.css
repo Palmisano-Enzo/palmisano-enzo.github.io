@@ -76,11 +76,22 @@
     animation: fadeUp 0.8s ease-out forwards;
   }
 
-  .blog {
+.blog {
     max-width: 800px;
     margin: 4rem auto;
-    padding: 0 2rem;
-  }
+}
+
+.blog article { 
+    background-color: #e6e6e6; 
+    padding: 2rem; 
+}
+
+.blog #projets{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem 2rem;
+    justify-content: space-around;
+}  
 
   .header-logo img {
     height: 140px;
@@ -210,6 +221,10 @@
     .header-logo img.is-scrolled {
         height: 30px;
     }
+
+    .blog #projets{
+        grid-template-columns: repeat(2, 1fr);
+    }  
 }
   
   
