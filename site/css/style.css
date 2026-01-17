@@ -77,7 +77,7 @@
   }
 
 .blog {
-    max-width: 800px;
+    max-width: 90%;
     margin: 4rem auto;
 }
 
@@ -223,7 +223,7 @@
     }
 
     .blog #projets{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }  
 }
   
