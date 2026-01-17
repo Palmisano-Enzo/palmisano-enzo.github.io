@@ -83,7 +83,7 @@
   }
 
   .header-logo img {
-    height: 180px;
+    height: 140px;
     width: auto;
     transition: opacity 0.2s ease;
     transition: height 0.75s ease;
@@ -184,7 +184,7 @@
 }
 
 .main-nav a.active::after,
-.main-nav a.hover::after{
+.main-nav a:hover::after{
     width: 100%;
 }
 
@@ -203,7 +203,7 @@
         font-size: 1rem;
     }
     .header-logo img {
-        height: 140px;
+        height: 80px;
     }
 
     /* Scrolled state */ 

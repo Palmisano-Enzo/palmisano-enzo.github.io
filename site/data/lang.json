@@ -4,10 +4,17 @@
       "subtitle": "Ingénieur en énergie et passionné par la digitalisation des réseaux électriques",
       "cta": "Voir mes projets",
       "nav": {
-        "home": "Accueil",
+        "home": "",
         "projects": "Projets",
         "cv": "À propos de moi",
         "contact": "Contact"
+      },
+      "contactForm": {
+        "contactTitle": "Contactez-moi !",
+        "nameLabel": "Nom",
+        "emailLabel": "Email",
+        "messageLabel": "Message",
+        "sendMessage": "Envoyer le message"
       }
     },
     "en": {
@@ -15,10 +22,18 @@
       "subtitle": "Energy Engineer and passionate about electrical grid digitalization", 
       "cta": "View my projects",
       "nav": {
-        "home": "Home",
+        "home": "",
         "projects": "Projects",
         "cv": "About me",
         "contact": "Contact"
+      },
+      "contactForm": {
+        "contactTitle": "Contact Me !",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "messageLabel": "Message",
+        "sendMessage": "Send Message"
       }
+      
     }
   }
