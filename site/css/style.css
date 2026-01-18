@@ -127,6 +127,41 @@
     display: none;
 }
 
+/*Blog card opening */
+#project-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.96);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  #project-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .overlay-content {
+    max-width: 60%;
+    margin: 10vh auto;
+    padding: 2rem;
+    animation: zoomIn 0.3s ease;
+  }
+  
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.96);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+
 /* header logo */
 .header-logo img {
     height: 140px;

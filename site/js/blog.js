@@ -27,18 +27,50 @@ function renderBlog() {
   allProjects
     .filter(p => p.lang === currentLang)
     .forEach(p => {
-     const article = document.createElement("article");
+        const article = document.createElement("article");
 
-    article.innerHTML = `
-      <h2 class="project-title">${p.title}</h2>
-      <h3 class="project-subtitle">${p.subtitle}</h3>
-      <div class="project-content">
-      <p>${p.description}</p>
-      <small>${p.date}</small>
-      ${p.link ? `<a href="${p.link}" target="_blank">Voir →</a>` : ""}
-      </div>
-    `;
+        article.innerHTML = `
+        <h2 class="project-title">${p.title}</h2>
+        <h3 class="project-subtitle">${p.subtitle}</h3>
+        <div class="project-content">
+        <p>${p.description}</p>
+        <small>${p.date}</small>
+        ${p.link ? `<a href="${p.link}" target="_blank">Voir →</a>` : ""}
+        </div>
+        `;
+
+        article.addEventListener("click", () => {
+            openProject(p);
+          });
 
     container.appendChild(article);
   });
+
 }
+
+function openProject(project) {
+    const overlay = document.getElementById("project-overlay");
+    const content = overlay.querySelector(".overlay-content");
+  
+    content.innerHTML = `
+      <h2>${project.title}</h2>
+      <h3>${project.subtitle}</h3>
+      <p>${project.description}</p>
+      <small>${project.date}</small><br>
+      ${project.link ? `<a href="${project.link}" target="_blank">Voir →</a>` : ""}
+    `;
+  
+    overlay.classList.add("open");
+  }
+
+  document.getElementById("project-overlay").addEventListener("click", e => {
+    if (e.target.id === "project-overlay") {
+      e.currentTarget.classList.remove("open");
+    }
+  });
+  
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      document.getElementById("project-overlay").classList.remove("open");
+    }
+  });
