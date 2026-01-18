@@ -107,15 +107,16 @@
     margin-top: 0.3rem;
     color: #555;
     opacity: 0;
-    transform: translateY(-4px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition:
+        max-height 0.25s ease,
+        opacity 0.2s ease;
 }
 
 /* Only for desktop: hover effects: border shadow and display card subtitle */
 @media (hover: hover) {
     .blog article:hover .project-subtitle {
+        max-height: 4rem;
         opacity: 1;
-        transform: translateY(0);
     }
     .blog article:hover {
         box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.2), 0 6px 20px 0 rgba(85,85,85,0.19)
@@ -131,11 +132,12 @@
 #project-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.60);
     z-index: 2000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
+    overflow-y: auto;
   }
   
   #project-overlay.open {
@@ -147,12 +149,14 @@
     max-width: 60%;
     margin: 10vh auto;
     padding: 2rem;
-    animation: zoomIn 0.3s ease;
+    background: #e6e6e6;
+    border-radius: 5px;
+    animation: zoomIn 2s ease;
   }
   
   @keyframes zoomIn {
     from {
-      transform: scale(0.96);
+      transform: scale(0.2);
       opacity: 0;
     }
     to {
