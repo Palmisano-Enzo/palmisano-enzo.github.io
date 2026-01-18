@@ -30,11 +30,13 @@ function renderBlog() {
      const article = document.createElement("article");
 
     article.innerHTML = `
-      <h2>${p.title}</h2>
-      <h3>${p.subtitle}</h3>
+      <h2 class="project-title">${p.title}</h2>
+      <h3 class="project-subtitle">${p.subtitle}</h3>
+      <div class="project-content">
       <p>${p.description}</p>
       <small>${p.date}</small>
       ${p.link ? `<a href="${p.link}" target="_blank">Voir →</a>` : ""}
+      </div>
     `;
 
     container.appendChild(article);

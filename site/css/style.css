@@ -76,14 +76,19 @@
     animation: fadeUp 0.8s ease-out forwards;
   }
 
+/* blog */
+
 .blog {
     max-width: 90%;
     margin: 4rem auto;
 }
 
 .blog article { 
-    background-color: #e6e6e6; 
+    background-color: #e6e6e6;
+    border-radius: 5px;
     padding: 2rem; 
+    cursor: pointer;
+    position: relative;
 }
 
 .blog #projets{
@@ -91,46 +96,76 @@
     grid-template-columns: 1fr;
     gap: 2rem 2rem;
     justify-content: space-around;
-}  
+} 
 
-  .header-logo img {
+.project-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+  
+.project-subtitle {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    color: #555;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Only for desktop: hover effects: border shadow and display card subtitle */
+@media (hover: hover) {
+    .project-card:hover .project-subtitle {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .blog article:hover {
+        box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.2), 0 6px 20px 0 rgba(85,85,85,0.19)
+    }
+}
+
+/* hide project content by default*/
+.project-content {
+    display: none;
+}
+
+/* header logo */
+.header-logo img {
     height: 140px;
     width: auto;
     transition: opacity 0.2s ease;
     transition: height 0.75s ease;
-  }
+}
 
-  /* Scrolled state */
-    .header-logo img.is-scrolled {
-        height: 80px;
-    }
+/* Scrolled state */
+.header-logo img.is-scrolled {
+    height: 80px;
+}
   
-  .header-logo a {
-    /*display: flex;*/
+.header-logo a {
     align-items: center;
-  }
+}
 
-  .header-logo img:hover {
+.header-logo img:hover {
     opacity: 0.7;
-  }
+}
 
-  /* header */
-  #header {
+/* header */
+#header {
     position: sticky;
     top:0;
-  }
+}
 
-  .site-header {
+.site-header {
     padding: 1.2rem 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     text-align: center;
     background: #f4f4f4;
-  }
-  
-  .header-inner {
+}
+
+.header-inner {
     font-weight: 600;
     letter-spacing: 0.05em;
-  }
+}
 
   /* lang-switch */
 
