@@ -146,6 +146,7 @@
   }
   
   .overlay-content {
+    position: relative;
     font-size: 2.5rem;
     max-width: 90%;
     max-height: 95vh;
@@ -189,12 +190,13 @@
 
 .overlay-close {
     position: absolute;
-    top: 0.75rem;
-    left: 0.25rem;
+    top: 0.25rem;
+    left: 0.50rem;
     background: none;
     border: none;
     -webkit-appearance: none;
-    font-size: 3rem;
+    text-shadow: 0 0 3px #111;
+    font-size: 6rem;
     line-height: 1;
     color: #ccc;
     opacity: 0.4;
@@ -345,6 +347,12 @@
         max-width: 60%;
         max-height: 90vh;
         margin: 2vh auto;
+    }
+
+    .overlay-close {
+        top: 0.25rem;
+        left: 0.50rem;
+        font-size: 3rem;
     }
 }
   
