@@ -67,7 +67,7 @@ function openProject(project) {
     `;
   
     overlay.classList.add("open");
-    ocument.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   }
 
 function closeOverlay() {
