@@ -53,6 +53,7 @@ function openProject(project) {
     const content = overlay.querySelector(".overlay-content");
   
     content.innerHTML = `
+      <button class="overlay-close" aria-label="Fermer">&times;</button>
       <div class="overlay-media">
         <img src="${project.image || 'assets/placeholder.png'}" alt="">
       </div>
@@ -66,16 +67,29 @@ function openProject(project) {
     `;
   
     overlay.classList.add("open");
+    ocument.body.style.overflow = "hidden";
   }
+
+function closeOverlay() {
+    const overlay = document.getElementById("project-overlay");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+  document.addEventListener("click", e => {
+    if (e.target.classList.contains("overlay-close")) {
+      closeOverlay();
+    }
+  });
 
   document.getElementById("project-overlay").addEventListener("click", e => {
     if (e.target.id === "project-overlay") {
-      e.currentTarget.classList.remove("open");
+        closeOverlay();
     }
   });
   
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
-      document.getElementById("project-overlay").classList.remove("open");
+        closeOverlay();
     }
   });

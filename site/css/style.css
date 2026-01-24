@@ -185,7 +185,26 @@
     padding: 2rem;
     overflow-y: auto; /* 🔥 SCROLL ICI */
     flex: 1;
-    }
+}
+
+.overlay-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #111;
+    opacity: 0.4;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.2s ease;
+}
+  
+.overlay-close:hover {
+    opacity: 0.8;
+}
   
 
 /* header logo */
