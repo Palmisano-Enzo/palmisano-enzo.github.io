@@ -53,11 +53,16 @@ function openProject(project) {
     const content = overlay.querySelector(".overlay-content");
   
     content.innerHTML = `
-      <h2>${project.title}</h2>
-      <h3>${project.subtitle}</h3>
-      <p>${project.description}</p>
-      <small>${project.date}</small><br>
-      ${project.link ? `<a href="${project.link}" target="_blank">Voir →</a>` : ""}
+      <div class="overlay-media">
+        <img src="${project.image || 'assets/placeholder.png'}" alt="">
+      </div>
+      <div class="overlay-body">
+        <h2>${project.title}</h2>
+        <h3>${project.subtitle}</h3>
+        <p>${project.description}</p>
+        <small>${project.date}</small><br>
+        ${project.link ? `<a href="${project.link}" target="_blank">Voir →</a>` : ""}
+      </div>
     `;
   
     overlay.classList.add("open");
