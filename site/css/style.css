@@ -146,9 +146,10 @@
   }
   
   .overlay-content {
-    max-width: 60%;
-    margin: 10vh auto;
-    padding: 2rem;
+    font-size: 2.5rem;
+    max-width: 90%;
+    max-height: 95vh;
+    margin: 2.5vh auto;
     background: #e6e6e6;
     border-radius: 5px;
     overflow: hidden;
@@ -319,6 +320,12 @@
     .blog #projets{
         grid-template-columns: repeat(3, 1fr);
     }  
+    .overlay-content {
+        font-size: 1rem;
+        max-width: 90%;
+        max-height: 95vh;
+        margin: 2.5vh auto;
+    }
 }
   
   
