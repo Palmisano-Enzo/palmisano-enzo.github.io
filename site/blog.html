@@ -24,14 +24,15 @@
 
         </main>
         
-        <script src="js/layout.js"></script>
-        <script src="js/lang.js"></script>
-        <script src="js/blog.js"></script>
+        <script src="js/layout.js" defer></script>
+        <script src="js/lang.js" defer></script>
+        <script src="js/blog.js" defer></script>
 
-        <script>
+        <script defer>
             loadPartial("#header", "partials/header.html", () => {
-                        initLangSwitch();
-                        highlightActivePage();});
+                initLangSwitch();
+                highlightActivePage();
+            });
         </script>
 
     </body>
