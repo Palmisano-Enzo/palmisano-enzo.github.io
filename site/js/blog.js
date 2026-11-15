@@ -10,7 +10,7 @@ fetch(PROJECTS_CSV_URL)
     return response.text();
   })
   .then(csv => {
-    allProjects = parseCsv(csv).map(([lang, title, subtitle, description, date, link, tags, image]) => ({
+    allProjects = parseCsv(csv).map(([lang, title, subtitle, description, date, link, tags, imageFolder]) => ({
       lang,
       title,
       subtitle,
@@ -18,7 +18,7 @@ fetch(PROJECTS_CSV_URL)
       date,
       link,
       tags,
-      image
+      imageFolder
     }));
 
     renderBlog();
@@ -86,15 +86,15 @@ function renderBlog() {
     });
 }
 
-function openProject(project) {
+async function openProject(project) {
   const overlay = document.getElementById("project-overlay");
   if (!overlay) return;
 
   const content = overlay.querySelector(".overlay-content");
   content.innerHTML = `
     <button class="overlay-close" aria-label="Fermer">&times;</button>
-    <div class="overlay-media">
-      <img src="${project.image || "assets/placeholder.png"}" alt="">
+    <div class="overlay-media" aria-label="Galerie d’images">
+      ${project.imageFolder ? "" : '<img src="assets/placeholder.png" alt="Image non disponible">'}
     </div>
     <div class="overlay-body">
       <h2>${project.title}</h2>
@@ -107,6 +107,40 @@ function openProject(project) {
 
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
+
+  const media = content.querySelector(".overlay-media");
+  if (!project.imageFolder) return;
+
+  try {
+    const folder = `assets/${encodeURIComponent(project.imageFolder)}`;
+    const response = await fetch(`${folder}/images.json`);
+    if (!response.ok) throw new Error(`Chargement du manifeste impossible (${response.status})`);
+
+    const images = await response.json();
+    if (!Array.isArray(images) || images.length === 0) return;
+
+    media.innerHTML = `
+      <button class="slider-control slider-previous" aria-label="Image précédente">&#10094;</button>
+      <img class="slider-image" src="" alt="${project.title}">
+      <button class="slider-control slider-next" aria-label="Image suivante">&#10095;</button>
+      <span class="slider-counter" aria-live="polite"></span>
+    `;
+
+    let currentIndex = 0;
+    const image = media.querySelector(".slider-image");
+    const counter = media.querySelector(".slider-counter");
+    const showImage = index => {
+      currentIndex = (index + images.length) % images.length;
+      image.src = `${folder}/${encodeURIComponent(images[currentIndex])}`;
+      counter.textContent = `${currentIndex + 1} / ${images.length}`;
+    };
+
+    media.querySelector(".slider-previous").addEventListener("click", () => showImage(currentIndex - 1));
+    media.querySelector(".slider-next").addEventListener("click", () => showImage(currentIndex + 1));
+    showImage(0);
+  } catch (error) {
+    console.error(`Erreur de chargement des images pour ${project.title} :`, error);
+  }
 }
 
 function closeOverlay() {
