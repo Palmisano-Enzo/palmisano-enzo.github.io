@@ -21,9 +21,30 @@ fetch(PROJECTS_CSV_URL)
       imageFolder
     }));
 
+    return Promise.all(allProjects.map(async project => {
+      project.coverImage = await loadCoverImage(project.imageFolder);
+    }));
+  })
+  .then(() => {
     renderBlog();
   })
   .catch(error => console.error("Erreur de chargement des projets :", error));
+
+async function loadCoverImage(imageFolder) {
+  if (!imageFolder) return "assets/placeholder.png";
+
+  const folder = `assets/${encodeURIComponent(imageFolder)}`;
+  try {
+    const response = await fetch(`${folder}/images.json`);
+    if (!response.ok) throw new Error(`Chargement du manifeste impossible (${response.status})`);
+    const images = await response.json();
+    if (!Array.isArray(images) || images.length === 0) return "assets/placeholder.png";
+    return `${folder}/${encodeURIComponent(images[0])}`;
+  } catch (error) {
+    console.error(`Erreur de chargement de la couverture ${imageFolder} :`, error);
+    return "assets/placeholder.png";
+  }
+}
 
 function parseCsv(csv) {
   const rows = [];
@@ -71,9 +92,12 @@ function renderBlog() {
     .filter(project => project.lang === currentLang)
     .forEach(project => {
       const article = document.createElement("article");
+      article.style.backgroundImage = `url("${project.coverImage}")`;
       article.innerHTML = `
-        <h2 class="project-title">${project.title}</h2>
-        <h3 class="project-subtitle">${project.subtitle}</h3>
+        <div class="project-card-caption">
+          <h2 class="project-title">${project.title}</h2>
+          <h3 class="project-subtitle">${project.subtitle}</h3>
+        </div>
         <div class="project-content">
           <p>${project.description}</p>
           <small>${project.date}</small>

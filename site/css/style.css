@@ -84,10 +84,24 @@
 }
 
 .blog article { 
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 18rem;
+    padding: 0;
+    overflow: hidden;
     background-color: #e6e6e6;
+    background-size: cover;
+    background-position: center;
     border-radius: 5px;
-    padding: 2rem; 
     cursor: pointer;
+}
+
+.project-card-caption {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: rgba(220, 220, 220, 0.82);
+    transition: transform 0.3s ease;
 }
 
 .blog #projets{
@@ -107,6 +121,8 @@
     margin-top: 0.3rem;
     color: #555;
     opacity: 0;
+    max-height: 0;
+    overflow: hidden;
     transition:
         max-height 0.25s ease,
         opacity 0.2s ease;
@@ -117,6 +133,9 @@
     .blog article:hover .project-subtitle {
         max-height: 4rem;
         opacity: 1;
+    }
+    .blog article:hover .project-card-caption {
+        transform: translateY(0);
     }
     .blog article:hover {
         box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.2), 0 6px 20px 0 rgba(85,85,85,0.19)
