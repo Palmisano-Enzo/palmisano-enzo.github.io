@@ -30,6 +30,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Generate image manifests
+        run: python3 website_generator/generate_image_manifests.py
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
